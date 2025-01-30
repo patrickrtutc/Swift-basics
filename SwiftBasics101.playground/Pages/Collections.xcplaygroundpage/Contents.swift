@@ -65,13 +65,10 @@ studentIDs.remove(13293)
 var mixDictionary: [AnyHashable: Any] = [false: 9.01, "age": 21]
 
 mixDictionary.remove(at: mixDictionary.startIndex)
+mixDictionary.removeValue(forKey: "age")
 
 
+var additionalDictionary: [AnyHashable: Any] = Dictionary(uniqueKeysWithValues: zip(arrayCopy, sortedNumbers))
 
-
-
-
-
-
-
+//let mergedDictionary = mixDictionary.merging(additionalDictionary) { (_, new) in new }
 
