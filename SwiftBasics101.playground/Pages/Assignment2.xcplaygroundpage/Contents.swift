@@ -7,10 +7,13 @@ import Foundation
 //Below in Swift
 //1.Optionals and Optional Binding
 
-var optionalName: String?
-
-if let name = optionalName {
-    print(name)
+let album = "Thriller"
+let albums = ["Thriller", "Back in Black", "Purple Rain"]
+//array.firstIndex(of:) returns an optional
+if let position = albums.firstIndex(of: album) {
+    print("We found \(album) at position \(position)")
+} else {
+    print("We didn't find \(album)")
 }
 
 // Force Unwrapping
@@ -18,6 +21,7 @@ if let name = optionalName {
 
 
 //2.Functions and different types for it
+var optionalName: String?
 
 @MainActor func greet() {
     guard let name = optionalName else {
@@ -36,11 +40,26 @@ func displayData(name: String?) {
 displayData(name: nil)
 displayData(name: "John")
 
+// inout parameters
+var count = 10
+
+func increment(_ num: inout Int) {
+    num += 5
+}
+
+increment(&count)
+print(count)
+
+// return type
+func square(_ number: Int) -> Int {
+    return number * number
+}
+print(square(5))
 
 
 //3.Tuples
 let tupleSample = (1,2,2,1)
-tupleSample.0
+print(tupleSample.0, tupleSample.1)
 
 //4.Control Statements in Swift and its uses
 //Share your assignment github link once its done on group
@@ -51,29 +70,19 @@ enum Weather {
 
 let forecast = Weather.sun
 
-if forecast == .sun {
-    print("It should be a nice day.")
-} else if forecast == .rain {
-    print("Pack an umbrella.")
-} else if forecast == .wind {
-    print("Wear something warm")
-} else if forecast == .rain {
-    print("School is cancelled.")
-} else {
-    print("Our forecast generator is broken!")
-}
-
-switch forecast {
-case .sun:
-    print("It should be a nice day.")
-case .rain:
-    print("Pack an umbrella.")
-case .wind:
-    print("Wear something warm")
-case .snow:
-    print("School is cancelled.")
-case .unknown:
-    print("Our forecast generator is broken!")
+func checkForecast(_ forecast: Weather) -> String {
+    switch forecast {
+    case .sun:
+        return "It should be a nice day."
+    case .rain:
+        return "Pack an umbrella."
+    case .wind:
+        return "Wear something warm"
+    case .snow:
+        return "School is cancelled."
+    case .unknown:
+        return "Our forecast generator is broken!"
+    }
 }
 
 //: [Next](@next)
