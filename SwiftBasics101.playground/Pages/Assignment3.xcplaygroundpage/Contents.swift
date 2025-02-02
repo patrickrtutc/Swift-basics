@@ -27,8 +27,9 @@ protocol Searchable {
     var searchId: String { get }
 }
 
+// Swift doesn't support multi-level inheritance. So we use protocols.
 class LibraryItem: Borrowable, Searchable {
-    let id: String  // Stored Property
+    fileprivate let id: String  // encapsulated Stored Property
     var title: String
     var isAvailable: Bool
     
@@ -54,16 +55,7 @@ class LibraryItem: Borrowable, Searchable {
     func checkIn() {
         isAvailable = true
     }
-    func findBooksByAuthor() {
-    }
 }
-
-struct Author {
-    let name: String
-    let birthYear: Int
-    var books: [Book]?
-}
-
 
 class Book: LibraryItem {
     var author: Author
@@ -79,28 +71,73 @@ class Book: LibraryItem {
         super.checkOut()
         print("Book '\(title)' has been checked out.")
     }
+}
+
+
+// abstracted unnecessary details for Author
+struct Author {
+    let name: String
+    let birthYear: Int
+    var books: [Book]?
     
-    override func findBooksByAuthor() {
-        guard let books = author.books else {
-            print("No books found for \(author.name)")
-            return
-        }
-            
-        print(author.name)
-        for book in books {
-            print("Book Title: \(book.title)")
+    // immutable by default
+    mutating func addBook(_ book: Book) {
+        if books == nil {
+            books = [book]
+        } else {
+            books?.append(book)
         }
     }
 }
 
+// Structs have no inheritance
+extension Author: Searchable {
+    var searchId: String {
+        return name
+    }
+    
+    func findallBooks() -> [Book]? {
+        guard let books = books else {
+            print("No books available")
+            return books
+        }
+
+        for book in books {
+            print("Book Title: \(book.title)")
+        }
+        return books
+    }
+}
+
+
+var orwell = Author(name: "George Orwell", birthYear: 1903)
+var fitzgerald = Author(name: "F. Scott Fitzgerald", birthYear: 1896)
+
+print(LibraryItem.totalItems)
+
+let novel = Book(
+    id: "1",
+    title: "The Great Gatsby",
+    author: fitzgerald,
+    pageCount: 180
+)
+let fictionBook = Book(id: "2", title: "1984", author: orwell, pageCount: 328)
+
+// static properties belong to the class
+print(LibraryItem.totalItems)
+
 // Polymorphism - Book class objects is treated as instances of LibraryItem through inheritance.
 let library: [LibraryItem] = [
-    Book(id: "1", title: "The Great Gatsby", author: Author(name: "F. Scott Fitzgerald", birthYear: 1896), pageCount: 180),
-    Book(id: "2", title: "1984", author: Author(name: "George Orwell", birthYear: 1903), pageCount: 328)]
+    novel, fictionBook
+    ]
 
 library[0].checkOut()
 library[1].checkOut()
-library[1].findBooksByAuthor()
+// force downcast with as!
+orwell.addBook(library[1] as! Book)
+
+orwell.findallBooks()
+
 
 
 
