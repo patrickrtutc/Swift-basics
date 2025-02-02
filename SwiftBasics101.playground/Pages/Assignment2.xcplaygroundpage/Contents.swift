@@ -16,6 +16,8 @@ if let position = albums.firstIndex(of: album) {
     print("We didn't find \(album)")
 }
 
+
+
 // Force Unwrapping
 //print(optionalName!) // This will crash!!
 
@@ -30,6 +32,8 @@ var optionalName: String?
     }
     print("Hello, \(name)!")
 }
+
+greet()
 
 // nil coalescing operator
 
@@ -50,11 +54,11 @@ func increment(_ num: inout Int) {
 increment(&count)
 print(count)
 
-// return type
-func square(_ number: Int) -> Int {
+// omit parameter label, default value for a parameter
+func square(_ number: Int = 0) -> Int {
     return number * number
 }
-print(square(5))
+print(square())
 
 
 //3.Tuples
