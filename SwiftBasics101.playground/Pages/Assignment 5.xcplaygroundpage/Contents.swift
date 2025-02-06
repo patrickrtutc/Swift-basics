@@ -10,7 +10,7 @@ import Foundation
  3.Initializers
  */
 
-let numbers = [0,1,2,3,4,5,6,7,8,9]
+let numbers = [1,2,3,4,5,6,7,8,9]
 
 //print(numbers.reduce(0, %))
 
@@ -47,8 +47,9 @@ func calculateModuloReduction(_ numbers: [Int]) throws -> Int {
     }
 }
 
-do{
-    try calculateModuloReduction(numbers.filter{ $0 != 0 })
+do {
+    let result = try calculateModuloReduction(numbers.filter { $0 != 0 })
+    print(result)
 } catch {
     print(error)
 }
@@ -56,7 +57,7 @@ do{
 let descendingNumbers = numbers.sorted(by: >)
 print(descendingNumbers)
 
-// shorthand parameter names for closure
+// shorthand parameter name for closure
 print(numbers.map {String($0)})
 
 print(numbers.filter {$0.isMultiple(of: 2)})
@@ -75,7 +76,7 @@ print(mixedArray2.compactMap { $0 })
 
 
 class Vehicle {
-    let brand: String
+    var brand: String
     var model: String
     var year: Int
     
@@ -106,4 +107,33 @@ class Vehicle {
         self.year = vehicle.year
     }
 }
+
+let car = Vehicle(brand: "Toyota", model: "Camry")
+let car2 = Vehicle(modelNumber: "9")
+if let car3 = Vehicle(modelNumber: "123") {
+    print(car3.year)
+} else {
+    print("Invalid model number")
+}
+
+class Motorcycle: Vehicle {
+    var engineSize: Int
+    
+    init(brand: String, model: String, year: Int, engineSize: Int) {
+        self.engineSize = engineSize
+        super.init(brand: brand, model: model, year: year)
+    }
+    
+    required init(copying vehicle: Vehicle) {
+        if let motorcycle = vehicle as? Motorcycle {
+            self.engineSize = motorcycle.engineSize
+        } else {
+            self.engineSize = 0  // Default value
+        }
+        super.init(copying: vehicle)
+    }
+}
+
+let motorcycle = Motorcycle(brand: "Honda", model: "CBR", year: 2023, engineSize: 600)
+let copiedMotorcycle = Motorcycle(copying: motorcycle)
 //: [Next](@next)
