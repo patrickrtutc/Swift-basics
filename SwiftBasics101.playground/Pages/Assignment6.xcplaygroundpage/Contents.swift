@@ -12,7 +12,7 @@ import Foundation
  5. Copy on write (COW)
  */
 
-/// *assoiciatedtype* make protocols generic
+/// *assoiciatedtype* makes protocols generic
 protocol ItemStoring {
     associatedtype DataType
 
@@ -37,7 +37,7 @@ var names = NameDatabase()
 
 class Person {
     let name: String
-    var macbook: MacBook?
+    weak var macbook: MacBook?
     
     init(name: String, macbook: MacBook?) {
         self.name = name
@@ -52,6 +52,7 @@ class Person {
 
 class MacBook {
     let name: String
+    /// weak references need to allow their value to be changed to nil at runtime, they’re always declared as variables, rather than constants, of an optional type.
     weak var owner: Person?
     
     init(name: String, owner: Person?) {
@@ -86,6 +87,7 @@ class Demo {
     
     func deinitializeObjects() {
         patrick = nil
+        
         laptop = nil
     }
 }
@@ -95,11 +97,16 @@ demo.createObjects()
 demo.assignProperties()
 demo.deinitializeObjects()
 
-/// Copy on Write
+/// Does Copy on Write apply for class objects?
 var demo2 = demo
 print()
 print(demo2.identity)
 print()
-demo = Demo(identity: "I'm another demo")
+//demo = Demo(identity: "I'm another demo")
+demo.identity = "I'm another demo"
 print(demo.identity)
 print(demo2.identity)
+
+//closure capturing
+
+

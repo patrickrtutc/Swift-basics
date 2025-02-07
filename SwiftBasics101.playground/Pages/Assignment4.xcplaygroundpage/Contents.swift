@@ -79,6 +79,7 @@ serve(customer: customersInLine.remove(at: 0))
 
 // customersInLine is ["Barry", "Daniella"]
 var customerProviders: [() -> String] = []
+
 @MainActor func collectCustomerProviders(
     _ customerProvider: @autoclosure @escaping () -> String
 ) {
