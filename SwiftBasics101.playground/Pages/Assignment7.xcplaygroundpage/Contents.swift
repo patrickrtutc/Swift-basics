@@ -45,37 +45,11 @@ let donald = Duck()
 donald.fly()
 donald.swim()
 
-/// With POP, can achieve highly modular code that is easy to maintain and loosely coupled.
-
-/// Dependency Inversion
-/// 
-protocol Database {
-    func connect()
-}
-
-class DatabaseController {
-
-    private let database: Database
-
-    // Injecting dependency in the form of protocols
-    init(db: Database) {
-        self.database = db
-    }
-
-    func connectDatabase() {
-        database.connect()
-    }
-}
-
-class NetworkRequest: Database {
-    func connect() {
-        // Connect to the database
-    }
-}
+/// With POP, we can achieve highly modular code that is easy to maintain and loosely coupled.
 
 
 
-
+/// POP in action
 protocol NetworkServiceProtocol {
     func fetchData() -> String
 }
@@ -96,13 +70,13 @@ class NetworkService: NetworkServiceProtocol {
 
 class Logger: LoggerProtocol {
     func log(_ message: String) {
-        print("📝 Logger: \(message)")
+        print("Logger: \(message)")
     }
 }
 
 class Analytics: AnalyticsProtocol {
     func trackEvent(_ event: String) {
-        print("📊 Analytics: Tracked event - \(event)")
+        print("Analytics: Tracked event - \(event)")
     }
 }
 
@@ -112,7 +86,7 @@ class UserService {
     private let networkService: NetworkServiceProtocol
     private let logger: LoggerProtocol
     
-    // Constructor Injection
+    // Constructor Injection, Dependency Inversion
     init(networkService: NetworkServiceProtocol, logger: LoggerProtocol) {
         self.networkService = networkService
         self.logger = logger
@@ -144,7 +118,6 @@ class ImageProcessor {
     // Dependencies are passed directly to methods that need them
     func processImage(data: Data, using logger: LoggerProtocol) {
         logger.log("Starting image processing")
-        // Process image...
         logger.log("Image processing completed")
     }
     
@@ -171,16 +144,16 @@ viewController.viewDidAppear()
 // 3. Method Injection
 print("\n--- Method Injection Demo ---")
 let imageProcessor = ImageProcessor()
-let imageData = "Sample Image".data(using: .utf8)!
+if let imageData = "Sample Image".data(using: .utf8) {
+    imageProcessor.processImage(
+        data: imageData,
+        using: Logger()
+    )
 
-imageProcessor.processImage(
-    data: imageData,
-    using: Logger()
-)
-
-imageProcessor.uploadImage(
-    data: imageData,
-    using: NetworkService()
-)
+    imageProcessor.uploadImage(
+        data: imageData,
+        using: NetworkService()
+    )
+}
 
 //: [Next](@next)

@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  AccessSpecifierPrj
 //
-//  Created by Patrick Tung on 2/6/25.
+//  Created by Patrick Tung on 2/7/25.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello!")
         }
         .padding()
     }
