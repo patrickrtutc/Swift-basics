@@ -6,12 +6,26 @@ enum TransactionType {
     case deposit(amount: Double)
     case withdrawal(amount: Double)
     case transfer(amount: Double, toAccount: String)
-    case savings(amount: Double, interestRate: Double)
+}
+
+protocol Stackable {
+    associatedtype Element
+    func peek() -> Element?
+    mutating func push(_ element: Element)
+    @discardableResult mutating func pop() -> Element?
+}
+
+extension Stackable {
+    var isEmpty: Bool { peek() == nil }
 }
 
 // Custom Stack with Generics
-struct Stack<T> {
+struct Stack<T> : Stackable {
     private var objects: [T] = []
+    
+    func peek() -> T? {
+        return objects.last
+    }
     
     mutating func push(_ object: T) {
         objects.append(object)
@@ -24,6 +38,14 @@ struct Stack<T> {
     func getAllObjects() -> [T] {
         return objects
     }
+}
+
+//extension Stack: Equatable {
+//    static func == (lhs: Stack<Element>, rhs: Stack<Element>) -> Bool { lhs.objects == rhs.objects }
+//}
+
+extension Stack: CustomStringConvertible {
+    var description: String { "\(objects)" }
 }
 
 // Constrain the protocol to only allow classes to conform
@@ -99,12 +121,13 @@ class Bank {
         guard let sourceAccount = accounts[from],
               let targetAccount = accounts[to],
               sourceAccount.withdraw(amount: amount) else {
+            print("Transaction failed!")
             return false
         }
         
         targetAccount.deposit(amount: amount)
-        sourceAccount.transactionHistory.push(.transfer(amount: amount, toAccount: to))
-        targetAccount.transactionHistory.push(.transfer(amount: amount, toAccount: from))
+        sourceAccount.transactionHistory.push(.transfer(amount: -amount, toAccount: from))
+        targetAccount.transactionHistory.push(.transfer(amount: amount, toAccount: to))
         return true
     }
 }
@@ -126,5 +149,12 @@ print("Regular Account Summary:")
 print(regularAccount.getAccountSummary())
 print("\nSavings Account Summary:")
 print(savingsAccount.getAccountSummary())
+
+print()
+// optional chaining
+print(bank.getAccount(byNumber: "R-123")?.transactionHistory.description ?? "No such account")
+print()
+print(bank.getAccount(byNumber: "S-456")?.transactionHistory.description ?? "No such account")
+
 
 //: [Next](@next)
