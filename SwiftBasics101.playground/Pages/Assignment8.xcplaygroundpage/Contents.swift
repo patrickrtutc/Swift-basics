@@ -40,16 +40,11 @@ struct Stack<T> : Stackable {
     }
 }
 
-//extension Stack: Equatable {
-//    static func == (lhs: Stack<Element>, rhs: Stack<Element>) -> Bool { lhs.objects == rhs.objects }
-//}
-
 extension Stack: CustomStringConvertible {
     var description: String { "\(objects)" }
 }
 
-// Constrain the protocol to only allow classes to conform
-protocol BankAccount: AnyObject {
+protocol BankAccount {
     var accountNumber: String { get }
     var balance: Double { get set }
     var transactionHistory: Stack<TransactionType> { get set }
@@ -78,11 +73,19 @@ class RegularAccount: BankAccount {
     }
     
     func deposit(amount: Double) {
+        guard amount >= 0 else {
+            print( "Deposit amount must be non-negative" )
+            return
+        }
         balance += amount
         transactionHistory.push(.deposit(amount: amount))
     }
     
     func withdraw(amount: Double) -> Bool {
+        guard amount >= 0 else {
+            print( "Withdrawal amount must be non-negative" )
+            return false
+        }
         guard amount <= balance else {
             print( "Insufficient funds" )
             return false
@@ -156,5 +159,7 @@ print(bank.getAccount(byNumber: "R-123")?.transactionHistory.description ?? "No 
 print()
 print(bank.getAccount(byNumber: "S-456")?.transactionHistory.description ?? "No such account")
 
+
+//bank.performTransfer(from: "R-123", to: "S-456", amount: 300000)
 
 //: [Next](@next)
