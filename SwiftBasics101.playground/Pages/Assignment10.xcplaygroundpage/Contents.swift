@@ -138,4 +138,20 @@ barrierQueue.async { print(sharedData) }
 barrierQueue.async(flags: .barrier) {
     sharedData.append("New Item")
 }
+print(sharedData)
+
+struct Counter12 {
+    var value: Int = 0
+    
+    mutating func increment() {
+        value += 1
+    }
+    
+    var nextValue: Int {
+        increment() // ❌ Error: Cannot call mutating function inside a computed property
+        return value
+    }
+}
 //: [Next](@next)
+
+
