@@ -7,6 +7,79 @@
 
 import SwiftUI
 
+func testSingleton(){
+    let authManager = AuthManager.shared
+    
+    
+    authManager.doLogin(token: "myAuthToken")
+    print("After Login")
+    print(authManager.isLoggedIn)
+    print(authManager.authToken)
+    
+    print()
+    print()
+    
+    authManager.logout()
+    print("After Logout")
+    print(authManager.isLoggedIn)
+    print(authManager.authToken)
+}
+
+func testBuilderDesignPattern(){
+    let pizza = PizzaBuilder()
+    //            .setDough( "thin")
+    //            .setSauce("Tomato garlic")
+    //            .addToppings("Mushrooms")
+    //            .addToppings( "Onion")
+        .build()
+    print(pizza.description())
+}
+
+func testFactoryDesignPattern(){
+
+   let truck = VehicalFactory.createVehicalObj(type: .truck)
+    truck.drive()
+    truck.stop()
+    
+    
+    let bike = VehicalFactory.createVehicalObj(type: .bike)
+    bike.drive()
+    bike.stop()
+}
+
+func testFacadeDesignPattern(){
+    let cart = ShoppingCart()
+    cart.checkout(items: ["iphone","airpods"], shippingAddress: "123, street, NY", paymentMethod: "Apple Pay")
+}
+
+
+func testAdapterDesignPattern(){
+    let anlaytics = CustomAppAnalytics()
+    anlaytics.logEvent(name: "login", parameters: ["email":"abc@gmai.com", "userId":"123"])
+    
+    let firebaseAnalytics = FireBaseAnalyticsAdapter()
+    firebaseAnalytics.logEvent(name: "login", parameters: ["email":"abc@gmai.com", "userId":"123"])
+
+}
+
+func testClosureDesignPattern(){
+    let networkManager = MyNetworkManager()
+    if let apiURL = URL(string: "https://jsonplaceholder.typicode.com/todos"){
+        networkManager.loadDataFromAPI(url: apiURL, modelType: [Todo].self) { result in
+            switch result{
+                
+            case .success(let recevivedData):
+                print(recevivedData)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+}
+
+
+
 enum DesignPatterns: String, CaseIterable, Identifiable {
     case Singleton
     case Factory
@@ -19,21 +92,29 @@ enum DesignPatterns: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+
+
 private func printExplanation(for pattern: DesignPatterns) -> String {
     switch pattern {
     case .Singleton:
-        return "Single shared instance and private initializer"
+        testSingleton()
+        return "Single shared instance and private initializer, shared instance = \(AuthManager.shared)"
     case .Factory:
+        testFactoryDesignPattern()
         return "Creating product through factory method"
     case .Builder:
+        testBuilderDesignPattern()
         return "Constructing a complex object step-by-step"
     case .Adapter:
+        testAdapterDesignPattern()
         return "Making two incompatible interfaces work with each other"
     case .Facade:
+        testFacadeDesignPattern()
         return "Simplifying complex subsystems with a single interface"
     case .Observer:
         return "Notifying subscribers of state changes"
     case .Closure:
+        testClosureDesignPattern()
         return "Passing functions as parameters dynamically"
     }
 }
@@ -60,6 +141,8 @@ struct ContentView: View {
         }
     }
 }
+
+
 
 #Preview {
     ContentView()
