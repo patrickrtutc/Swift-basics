@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ForgotPasswordViewController : BaseViewController {
+class ForgotPasswordViewController : UIViewController {
     
+    let viewModel = ViewModel()
     @IBOutlet weak var LabelTitle: UILabel!
     @IBOutlet weak var TextFieldEmail: UITextField!
     @IBOutlet weak var ButtonResetPassword: UIButton!
@@ -23,7 +24,7 @@ class ForgotPasswordViewController : BaseViewController {
         LabelTitle.text = "Reset Password"
         LabelTitle.font = .systemFont(ofSize: 24, weight: .bold)
         TextFieldEmail.placeholder = "E-mail"
-        addBottomBorder(to: TextFieldEmail)
+        TextFieldEmail.addBottomBorder()
         LabelInstruction.numberOfLines = 0
     }
 }

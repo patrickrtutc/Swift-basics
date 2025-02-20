@@ -7,7 +7,8 @@
 
 import UIKit
 
-class SignUpViewController: BaseViewController {
+class SignUpViewController: UIViewController {
+
     @IBOutlet weak var LabelSignUp: UILabel!
     
     @IBOutlet weak var TextFieldEmail: UITextField!
@@ -23,11 +24,11 @@ class SignUpViewController: BaseViewController {
         LabelSignUp.text = "Sign Up"
         LabelSignUp.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         TextFieldEmail.placeholder = "E-mail"
-        addBottomBorder(to: TextFieldEmail)
+        TextFieldEmail.addBottomBorder()
         TextFieldPassword.placeholder = "Password"
-        addBottomBorder(to: TextFieldPassword)
+        TextFieldPassword.addBottomBorder()
         TextFieldRepeatPassword.placeholder = "Repeat Password"
-        addBottomBorder(to: TextFieldRepeatPassword)
+        TextFieldRepeatPassword.addBottomBorder()
     }
 }
     

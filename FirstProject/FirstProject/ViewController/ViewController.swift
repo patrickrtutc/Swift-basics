@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ViewController: BaseViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    let viewModel = ViewModel()
 
     @IBOutlet weak var LabelSignIn: UILabel!
     @IBOutlet weak var TextFieldEmail: UITextField!
@@ -26,9 +27,34 @@ class ViewController: BaseViewController {
         super.viewDidLoad()
         resetForm()
         setupUI()
+        
+        TextFieldEmail.delegate = self
+        TextFieldPassword.delegate = self
     }
     
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == TextFieldEmail {
+                if let text = textField.text as NSString? {
+                    let updatedText = text.replacingCharacters(in: range, with: string)
+                    if viewModel.invalidEmail(updatedText) == nil {
+                        ErrorEmail.isHidden = true
+                    }
+                }
+            } else if textField == TextFieldPassword {
+                if let text = textField.text as NSString? {
+                    let updatedText = text.replacingCharacters(in: range, with: string)
+                    if viewModel.invalidPassword(updatedText) == nil {
+                        ErrorPassword.isHidden = true
+                    }
+                }
+            }
+        
+        DispatchQueue.main.async {
+               self.checkFormValidity()
+           }
+           
+            return true
+    }
     
     func resetForm()
     {
@@ -47,7 +73,7 @@ class ViewController: BaseViewController {
     
     @IBAction func emailChanged(_ sender: Any) {
         if let email = TextFieldEmail.text {
-            if let errorMsg = invalidEmail(email) {
+            if let errorMsg = viewModel.invalidEmail(email) {
                 ErrorEmail.text = errorMsg
                 ErrorEmail.isHidden = false
             } else
@@ -58,18 +84,9 @@ class ViewController: BaseViewController {
         checkFormValidity()
     }
     
-    func invalidEmail(_ email: String) -> String? {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        if predicate.evaluate(with: email) == false {
-            return "Invalid Email Address"
-        }
-        return nil
-    }
-    
     @IBAction func passwordChanged(_ sender: Any) {
         if let password = TextFieldPassword.text {
-            if let errorMsg = invalidPassword(password) {
+            if let errorMsg = viewModel.invalidPassword(password) {
                 ErrorPassword.text = errorMsg
                 ErrorPassword.isHidden = false
             } else
@@ -80,30 +97,6 @@ class ViewController: BaseViewController {
         checkFormValidity()
     }
     
-    func invalidPassword(_ password: String) -> String? {
-        guard password.count >= 8 else {
-            return "Password must be at least 8 characters long"
-        }
-        guard password.rangeOfCharacter(from: .whitespacesAndNewlines) == nil else {
-            return "Password must not contain whitespace"
-        }
-        guard password.rangeOfCharacter(from: .uppercaseLetters) != nil else {
-            return "Password must contain uppercase letter"
-        }
-        guard password.isEmpty == false else {
-            return "Password cannot be empty"
-        }
-        guard password.contains(where: { $0.isNumber }) else {
-            return "Password must contain a number"
-        }
-        guard password.rangeOfCharacter(from: .lowercaseLetters) != nil else {
-            return "Password must contain lowercase letter"
-        }
-        guard password.rangeOfCharacter(from: .punctuationCharacters) != nil else {
-            return "Password must contain punctuation"
-        }
-        return nil
-    }
     
     func checkFormValidity()
     {
@@ -122,10 +115,10 @@ class ViewController: BaseViewController {
         LabelSignIn.font = .systemFont(ofSize: 24, weight: .bold)
         TextFieldEmail.textColor = .label
         TextFieldEmail.placeholder = "E-mail"
-        addBottomBorder(to: TextFieldEmail)
+        TextFieldEmail.addBottomBorder()
         TextFieldPassword.textColor = .label
         TextFieldPassword.placeholder = "Password"
-        addBottomBorder(to: TextFieldPassword)
+        TextFieldPassword.addBottomBorder()
         ButtonSignIn.setTitleColor(.label, for: .normal)
         ButtonSignIn.layer.cornerRadius = 16
         ButtonSignIn.layer.masksToBounds = true
