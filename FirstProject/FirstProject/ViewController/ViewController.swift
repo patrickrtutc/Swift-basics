@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
                self.checkFormValidity()
            }
-           
             return true
     }
     
