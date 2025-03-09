@@ -20,9 +20,9 @@ extension ContentView {
         case error(String)
     }
     
-    @MainActor
-    class ViewModel: ObservableObject {
-        @Published var state: ForecastState = .loading
+    @Observable @MainActor
+    class ViewModel {
+        var state: ForecastState = .loading
         
         func fetchForecast() async {
             guard let url = URL(string: APIEndpoints().getURLdaily()) else {
@@ -47,10 +47,7 @@ extension ContentView {
                 
                 //                let hourly = response.hourly!
                 
-                guard let daily = response.daily else {
-                    state = .error("No daily data available")
-                    return
-                }
+                let daily = response.daily!
                 
                 /// Note: The order of weather variables in the URL query and the `at` indices below need to match!
                 let data = WeatherData(
@@ -68,6 +65,8 @@ extension ContentView {
                 dateFormatter.timeZone = .gmt
                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
                 
+                    
+
                 for (i, date) in data.daily.time.enumerated() {
                     print(dateFormatter.string(from: date))
                     print(data.daily.weatherCode[i])

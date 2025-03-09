@@ -9,11 +9,12 @@ import SwiftUI
 import OpenMeteoSdk
 
 struct ContentView: View {
-    @ObservedObject var viewModel: ViewModel
+    var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
             VStack {
+                
                 switch viewModel.state {
                 case .loading:
                     ProgressView("Loading...")
