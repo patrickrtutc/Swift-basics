@@ -36,11 +36,6 @@ class CountryListViewModel: ObservableObject {
         self.networkManager = networkManager
         self.state = state
     }
-    
-//    init(copyFrom: CountryListViewModel, state: CountryListViewState = .loading) {
-//        self.networkManager = copyFrom.networkManager
-//        self.state = state
-//        }
 
     func fetchCountries() async {
         do {
@@ -63,7 +58,8 @@ class CountryListViewModel: ObservableObject {
         if searchText.isEmpty {
             filteredCountries = allCountries
         } else {
-            filteredCountries = allCountries.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            filteredCountries = allCountries.filter { $0.name.localizedCaseInsensitiveContains(searchText)
+            }
         }
     }
 }

@@ -16,14 +16,13 @@ struct Country: Decodable {
     let currency: Currency
     let language: Language
 
-    // Nested structs
-    struct Currency: Codable {
+    struct Currency: Decodable {
         let code: String?
         let name: String?
         let symbol: String?
     }
 
-    struct Language: Codable {
+    struct Language: Decodable {
         let code: String?
         let name: String?
     }
