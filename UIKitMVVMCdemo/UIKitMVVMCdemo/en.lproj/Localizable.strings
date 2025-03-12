@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  UIKitMVVMCdemo
+
+  Created by Patrick Tung on 3/12/25.
+  
+*/
+"HomeViewGreeting" = "Welcome to the MVVM-C Architecture Demo";
