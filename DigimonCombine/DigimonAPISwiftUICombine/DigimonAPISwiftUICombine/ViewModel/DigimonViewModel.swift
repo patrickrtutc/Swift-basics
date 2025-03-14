@@ -10,19 +10,26 @@ import Combine
 
 extension SearchableDigimonListView {
     
-    @Observable
     class ViewModel: ObservableObject {
-
-        var searchText: String = ""
-        var state: ViewState = .idle
+        // UI state
+        @Published var searchText: String = ""
+        @Published var state: ViewState = .idle
+        @Published var dataSource: DataSource?
         
-        private let coreDataManager: CoreDataManager
-        private let apiService: APIService
+        // Dependencies - make repository public for views that need direct access
+        let repository: DigimonRepository
         private var cancellables = Set<AnyCancellable>()
         
-        init(apiService: APIService, coreDataManager: CoreDataManager = .shared) {
-            self.apiService = apiService
-            self.coreDataManager = coreDataManager
+        init(repository: DigimonRepository = DefaultDigimonRepository()) {
+            self.repository = repository
+            
+            // Subscribe to data source updates from the repository
+            repository.dataSourcePublisher
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] source in
+                    self?.dataSource = source
+                }
+                .store(in: &cancellables)
         }
         
         var filteredDigimons: [Digimon] {
@@ -34,33 +41,82 @@ extension SearchableDigimonListView {
         
         func fetchDigimons() {
             state = .loading
-//            print("Reloaded!!!")
-
             
-            let cachedDigimons = coreDataManager.fetchDigimons()
-                    if !cachedDigimons.isEmpty {
-                        state = .loaded(cachedDigimons)
-                        return
-                    }
-            
-            print("Reloaded!!!")
-            
-            
-            apiService.fetchData(from: APIEndpoints.digimon)
-                .receive(on: DispatchQueue.main) // Ensure updates occur on the main thread
-                .sink(receiveCompletion: {[weak self] completion in
+            repository.fetchAllDigimons()
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
                     switch completion {
                     case .failure(let error):
                         self?.state = .error(error)
                     case .finished:
                         break
                     }
-                }, receiveValue: {[weak self] digimons in
-                    self?.coreDataManager.saveDigimons(digimons)
+                }, receiveValue: { [weak self] digimons in
                     self?.state = .loaded(digimons)
                 })
                 .store(in: &cancellables)
         }
+        
+        // Fetch digimons by level
+        func fetchDigimonsByLevel(_ level: String) {
+            state = .loading
+            
+            repository.fetchDigimonsByLevel(level)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        self?.state = .error(error)
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: { [weak self] digimons in
+                    self?.state = .loaded(digimons)
+                })
+                .store(in: &cancellables)
+        }
+        
+        // Fetch digimons by name
+        func fetchDigimonsByName(_ name: String) {
+            state = .loading
+            
+            repository.fetchDigimonsByName(name)
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        self?.state = .error(error)
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: { [weak self] digimons in
+                    self?.state = .loaded(digimons)
+                })
+                .store(in: &cancellables)
+        }
+        
+        // Force refresh data
+        func refreshData() {
+            state = .loading
+            
+            repository.refreshData()
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .failure(let error):
+                        self?.state = .error(error)
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: { [weak self] digimons in
+                    self?.state = .loaded(digimons)
+                })
+                .store(in: &cancellables)
+        }
+        
+        // Get image for a digimon
+        func getImage(for digimon: Digimon) -> AnyPublisher<UIImage?, Error> {
+            return repository.getImage(for: digimon)
+        }
     }
-
 }

@@ -1,6 +1,6 @@
 //
-//  MockAPIServiceManager.swift
-//  DigimonAPISwiftUICombine
+//  MockAPIService.swift
+//  DigimonAPISwiftUICombineTests
 //
 //  Created by Patrick Tung on 3/4/25.
 //
@@ -8,32 +8,32 @@
 import Combine
 import Foundation
 
-class MockAPIService: APIService {
-    
+/// Mock implementation of APIServiceable for testing
+class MockAPIService: APIServiceable {
+    // Test configuration
     var shouldReturnError = false
     var testPath: String = ""
+    var delay: TimeInterval = 0
     
-    func fetchData<T>(from url: String) -> AnyPublisher<T, Error> where T: Decodable {
+    // Monitoring
+    var fetchCallCount = 0
+    var lastComponents: URLComponents?
+    
+    func fetch<T>(from urlComponents: URLComponents) -> AnyPublisher<T, Error> where T: Decodable {
+        fetchCallCount += 1
+        lastComponents = urlComponents
+        
         // Simulate an error if requested
         if shouldReturnError {
-            return Fail(error: URLError(.badServerResponse))
+            return Fail(error: NetworkError.httpError(statusCode: 500))
+                .delay(for: .seconds(delay), scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         }
         
-        // Use testPath if set; otherwise, fall back to the url parameter as the file name
-        
-//        let bundle = Bundle(for: MockAPIService.self)
-        
-        // Attempt to locate the JSON file in the bundle
-        //        guard let urlObj = bundle.url(forResource: testPath, withExtension: "json") else {
-        //            print("Error: Could not find \(testPath).json in test bundle")
-        //            return Fail(error: URLError(.fileDoesNotExist))
-        //                .eraseToAnyPublisher()
-        //        }
         let bundle = Bundle(for: MockAPIService.self)
-        guard let path = bundle.url(forResource: testPath, withExtension: "json") else{
+        guard let path = bundle.url(forResource: testPath, withExtension: "json") else {
             print("Error: Could not find \(testPath).json in test bundle")
-            return Fail(error: URLError(.fileDoesNotExist))
+            return Fail(error: NetworkError.invalidURL)
                 .eraseToAnyPublisher()
         }
         
@@ -43,11 +43,21 @@ class MockAPIService: APIService {
             let parsedData = try JSONDecoder().decode(T.self, from: data)
             return Just(parsedData)
                 .setFailureType(to: Error.self)
+                .delay(for: .seconds(delay), scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         } catch {
             print("Error decoding data from \(testPath).json: \(error)")
-            return Fail(error: error)
+            return Fail(error: NetworkError.decodingError(error))
                 .eraseToAnyPublisher()
         }
+    }
+    
+    // Reset test state
+    func reset() {
+        shouldReturnError = false
+        testPath = ""
+        delay = 0
+        fetchCallCount = 0
+        lastComponents = nil
     }
 }

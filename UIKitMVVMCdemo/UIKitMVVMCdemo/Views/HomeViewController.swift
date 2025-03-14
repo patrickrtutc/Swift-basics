@@ -6,7 +6,10 @@ class HomeViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "MVVM-C Demo"
+        label.text = NSLocalizedString(
+            "DemoTitle",
+            comment: "MVVM-C Demo"
+        )//"MVVM-C Demo"
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .center
         return label
@@ -30,7 +33,10 @@ class HomeViewController: UIViewController {
     private let userListButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("View User List", for: .normal)
+        button.setTitle(NSLocalizedString(
+            "userListButtonTitle",
+            comment: "View User List"
+        ), for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
@@ -55,7 +61,10 @@ class HomeViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        title = "Home"
+        title = NSLocalizedString(
+            "title",
+            comment: "Home"
+        )
         
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
@@ -72,7 +81,9 @@ class HomeViewController: UIViewController {
             
             userListButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             userListButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 60),
-            userListButton.widthAnchor.constraint(equalToConstant: 200),
+            userListButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 200),
+            userListButton.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
+            userListButton.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
             userListButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

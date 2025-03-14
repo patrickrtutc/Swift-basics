@@ -40,7 +40,7 @@ class UserDetailViewController: UIViewController {
     private let backButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Go Back", for: .normal)
+        button.setTitle(NSLocalizedString("GoBackButtonTitle", comment: "Go Back"), for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
@@ -66,7 +66,7 @@ class UserDetailViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        title = "User Details"
+        title = NSLocalizedString("UserDetailsTitle", comment: "User Details")
         
         containerStackView.addArrangedSubview(nameLabel)
         containerStackView.addArrangedSubview(ageLabel)
@@ -81,7 +81,7 @@ class UserDetailViewController: UIViewController {
             containerStackView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
             containerStackView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20),
             
-            backButton.widthAnchor.constraint(equalToConstant: 200),
+            backButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 200),
             backButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }

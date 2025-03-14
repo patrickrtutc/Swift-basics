@@ -6,3 +6,14 @@
   
 */
 "HomeViewGreeting" = "Welcome to the MVVM-C Architecture Demo";
+"DemoTitle" = "MVVM-C Demo";
+"userListButtonTitle" = "View User List";
+"title" = "Home";
+
+/* User List View */
+"UserListTitle" = "User List";
+"BackButtonTitle" = "Back";
+
+/* User Detail View */
+"UserDetailsTitle" = "User Details";
+"GoBackButtonTitle" = "Go Back";

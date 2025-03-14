@@ -5,4 +5,15 @@
   Created by Patrick Tung on 3/12/25.
   
 */
-"HomeViewGreeting" = "Bienvenue à la démonstration de l'architecture MVVM-C";
+"HomeViewGreeting" = "Bienvenue dans la démonstration de l'architecture MVVM-C";
+"DemoTitle" = "Démonstration MVVM-C";
+"userListButtonTitle" = "Voir la liste des utilisateurs";
+"title" = "Maison";
+
+/* User List View */
+"UserListTitle" = "Liste des utilisateurs";
+"BackButtonTitle" = "Retour";
+
+/* User Detail View */
+"UserDetailsTitle" = "Détails de l'utilisateur";
+"GoBackButtonTitle" = "Retourner";

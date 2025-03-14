@@ -9,13 +9,22 @@ import SwiftUI
 
 @main
 struct DigimonApp: App {
+    // Create a shared repository
+    private let repository = DefaultDigimonRepository()
+    
+    // Create view model with the repository
     @StateObject private var viewModel = SearchableDigimonListView.ViewModel(
-        apiService: APIServiceManager()
+        repository: DefaultDigimonRepository()
     )
     
     var body: some Scene {
         WindowGroup {
-            SearchableDigimonListView().environmentObject(viewModel)
+            SearchableDigimonListView()
+                .environmentObject(viewModel)
+                .onAppear {
+                    // Pre-fetch data when app launches
+                    viewModel.fetchDigimons()
+                }
         }
     }
 }

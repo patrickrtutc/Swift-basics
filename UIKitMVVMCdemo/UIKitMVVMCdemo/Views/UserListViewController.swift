@@ -27,11 +27,11 @@ class UserListViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
-        title = "User List"
+        title = NSLocalizedString("UserListTitle", comment: "User List")
         
         // Add a back button
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Back",
+            title: NSLocalizedString("BackButtonTitle", comment: "Back"),
             style: .plain,
             target: self,
             action: #selector(backButtonTapped)
