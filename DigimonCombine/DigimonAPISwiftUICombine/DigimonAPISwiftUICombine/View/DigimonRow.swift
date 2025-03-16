@@ -63,4 +63,5 @@ struct DigimonRow: View {
 #Preview {
     DigimonRow(digimon: Digimon(name: "Koromon", img: "https://digimon.shadowsmith.com/img/koromon.jpg", level: "In Training"))
         .environmentObject(SearchableDigimonListView.ViewModel())
+        .frame(width: 250, height: 100, alignment: .center)
 }
