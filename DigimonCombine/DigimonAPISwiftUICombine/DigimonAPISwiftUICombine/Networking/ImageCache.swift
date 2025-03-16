@@ -10,7 +10,7 @@ import Combine
 
 /// Actor-based image cache that stores images in memory and on disk
 actor ImageCache {
-    static let shared = ImageCache()
+    static let shared = ImageCache() //TODO: make private
     
     // Memory cache using NSCache
     private let memoryCache = NSCache<NSString, UIImage>()

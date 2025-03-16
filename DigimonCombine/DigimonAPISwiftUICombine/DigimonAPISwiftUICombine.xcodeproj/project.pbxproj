@@ -33,14 +33,14 @@
 		D4EADCF02D7924C50087D8B2 /* Exceptions for "DigimonAPISwiftUICombineTests" folder in "DigimonAPISwiftUICombine" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MockAPIService.swift,
+				Mocks/MockAPIService.swift,
 			);
 			target = D4EADC0F2D773C9E0087D8B2 /* DigimonAPISwiftUICombine */;
 		};
 		D4EADCF12D7924C50087D8B2 /* Exceptions for "DigimonAPISwiftUICombineTests" folder in "DigimonAPISwiftUICombineTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				MockAPIService.swift,
+				Mocks/MockAPIService.swift,
 			);
 			target = D4EADC1F2D773CA00087D8B2 /* DigimonAPISwiftUICombineTests */;
 		};
