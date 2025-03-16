@@ -72,3 +72,21 @@ build/
 *.perspectivev3
 
 *.jpg
+
+# .gitignore file for a Swift project
+
+# Build files
+DerivedData/
+.build/
+
+# Xcode temporary files
+xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# Dependencies
+Pods/
+Carthage/
+
+# User-specific settings
+*.xcuserstate
+
