@@ -13,8 +13,8 @@ import UIKit
 class DefaultDigimonRepository: DigimonRepository {
     // Dependencies
     private let apiService: APIServiceable
-    private let coreDataManager: CoreDataManager
-    private let imageCache: ImageCache
+    private let coreDataManager: CoreDataManagerProtocol
+    private let imageCache: ImageCacheable
     
     // Memory cache for optimizing frequent requests
     private var cachedDigimons: [Digimon]?
@@ -34,8 +34,8 @@ class DefaultDigimonRepository: DigimonRepository {
     ///   - imageCache: Cache for images
     init(
         apiService: APIServiceable = APIService(),
-        coreDataManager: CoreDataManager = .shared,
-        imageCache: ImageCache = .shared
+        coreDataManager: CoreDataManagerProtocol = CoreDataManager.shared,
+        imageCache: ImageCacheable = ImageCache.shared
     ) {
         self.apiService = apiService
         self.coreDataManager = coreDataManager
@@ -194,4 +194,23 @@ class DefaultDigimonRepository: DigimonRepository {
     
     // Storage for active publishers
     private var cancellables = Set<AnyCancellable>()
+}
+
+// MARK: - Testing Extensions
+extension DefaultDigimonRepository {
+    /// Sets cached Digimons for testing purposes only
+    func setTestCachedDigimons(_ digimons: [Digimon]) {
+        self.cachedDigimons = digimons
+    }
+    
+    /// Sets last fetch timestamp for testing purposes only
+    func setTestLastFetchTimestamp(_ date: Date) {
+        self.lastFetchTimestamp = date
+    }
+    
+    /// Clears all cached data for testing purposes only
+    func clearTestCache() {
+        self.cachedDigimons = nil
+        self.lastFetchTimestamp = nil
+    }
 } 
