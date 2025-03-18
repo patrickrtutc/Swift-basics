@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct SearchableDigimonListView: View {
     
@@ -16,11 +17,13 @@ struct SearchableDigimonListView: View {
             VStack {
                 switch viewModel.state {
                 case .idle:
-                    //                    Text("Start searching for Digimon")
                     Color.clear.onAppear { viewModel.fetchDigimons() }
                 case .loading:
                     ProgressView("Loading Digimons...")
                 case .loaded:
+                    Button("Crash") {
+                      fatalError("Crash was triggered")
+                    }
                     List(viewModel.filteredDigimons, id: \.name) { digimon in
                         HStack {
                             DigimonRow(digimon: digimon)
@@ -30,6 +33,14 @@ struct SearchableDigimonListView: View {
                     VStack {
                         Text("Error: \(message)").foregroundColor(.red)
                         Button("Retry") {
+                            Analytics
+                                .logEvent(
+                                    AnalyticsEventSelectContent,
+                                    parameters: [
+                                        AnalyticsParameterItemID:"Retry",
+                                        AnalyticsParameterItemName:"Retry Button",
+                                        AnalyticsParameterContentType: "Retry Button"]
+                                )
                             viewModel.fetchDigimons()
                         }
                     }
@@ -38,6 +49,11 @@ struct SearchableDigimonListView: View {
             .navigationTitle("Digimon List")
             .searchable(text: $viewModel.searchText, prompt: "Search")
             .onAppear {
+                Analytics
+                    .logEvent(
+                        AnalyticsEventScreenView,
+                        parameters: [AnalyticsEventScreenView:"SearchableDigimonListView"]
+                    )
                 viewModel.fetchDigimons()
             }
             .refreshable {

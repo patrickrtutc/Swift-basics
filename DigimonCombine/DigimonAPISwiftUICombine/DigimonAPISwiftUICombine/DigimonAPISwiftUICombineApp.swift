@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 @main
 struct DigimonApp: App {
+    // register app delegate for Firebase setup
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     // Create a shared repository
     private let repository = DefaultDigimonRepository()
     
@@ -19,12 +25,30 @@ struct DigimonApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SearchableDigimonListView()
+            // Use AuthenticationContainerView as the root view
+            AuthenticationContainerView()
                 .environmentObject(viewModel)
                 .onAppear {
                     // Pre-fetch data when app launches
                     viewModel.fetchDigimons()
                 }
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Configure Firebase with logging enabled
+            FirebaseApp.configure()
+            print("Firebase successfully configured")
+            
+            // Check if Auth is configured
+            if Auth.auth().app != nil {
+                print("Firebase Auth is properly initialized")
+            } else {
+                print("WARNING: Firebase Auth is not properly initialized")
+        }
+        return true
     }
 }
