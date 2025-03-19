@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		386772495D4AA1513D50EEF3 /* Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EC2E5BF47826B6811C8819 /* Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework */; };
+		607F89D21C93E8CC0161B2E1 /* Pods_PokemonAlamofireCocoapodsSecureStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E73F10EB2DF1F6250F542A /* Pods_PokemonAlamofireCocoapodsSecureStorage.framework */; };
+		B2E0B7327A762DEE6DDEB876 /* Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C552354EAD084ED58B2E0D33 /* Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4D02B442D8B0CE70008B611 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4D02B262D8B0CE60008B611 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4D02B2D2D8B0CE60008B611;
+			remoteInfo = PokemonAlamofireCocoapodsSecureStorage;
+		};
+		D4D02B4E2D8B0CE70008B611 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4D02B262D8B0CE60008B611 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4D02B2D2D8B0CE60008B611;
+			remoteInfo = PokemonAlamofireCocoapodsSecureStorage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EC5B7312F5EA94678FA67B6 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorageTests.release.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorageTests/Pods-PokemonAlamofireCocoapodsSecureStorageTests.release.xcconfig"; sourceTree = "<group>"; };
+		388E0848A915E261DA32B66D /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		60A67298B2B9BB2031183B22 /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.release.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.release.xcconfig"; sourceTree = "<group>"; };
+		80167196DCFE5794FF411C62 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorageTests.debug.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorageTests/Pods-PokemonAlamofireCocoapodsSecureStorageTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C552354EAD084ED58B2E0D33 /* Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E73F10EB2DF1F6250F542A /* Pods_PokemonAlamofireCocoapodsSecureStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonAlamofireCocoapodsSecureStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D02B2E2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonAlamofireCocoapodsSecureStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D02B432D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonAlamofireCocoapodsSecureStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D02B4D2D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonAlamofireCocoapodsSecureStorageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5460FA378B4A5CA7B7B9A05 /* Pods-PokemonAlamofireCocoapodsSecureStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorage.debug.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage/Pods-PokemonAlamofireCocoapodsSecureStorage.debug.xcconfig"; sourceTree = "<group>"; };
+		D999B7281B70C1450363B1DB /* Pods-PokemonAlamofireCocoapodsSecureStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonAlamofireCocoapodsSecureStorage.release.xcconfig"; path = "Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage/Pods-PokemonAlamofireCocoapodsSecureStorage.release.xcconfig"; sourceTree = "<group>"; };
+		E5EC2E5BF47826B6811C8819 /* Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D4D02B302D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokemonAlamofireCocoapodsSecureStorage;
+			sourceTree = "<group>";
+		};
+		D4D02B462D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokemonAlamofireCocoapodsSecureStorageTests;
+			sourceTree = "<group>";
+		};
+		D4D02B502D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PokemonAlamofireCocoapodsSecureStorageUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4D02B2B2D8B0CE60008B611 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				607F89D21C93E8CC0161B2E1 /* Pods_PokemonAlamofireCocoapodsSecureStorage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B402D8B0CE70008B611 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2E0B7327A762DEE6DDEB876 /* Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B4A2D8B0CE70008B611 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				386772495D4AA1513D50EEF3 /* Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82FABBC9ED3E98B64FBBD2E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5460FA378B4A5CA7B7B9A05 /* Pods-PokemonAlamofireCocoapodsSecureStorage.debug.xcconfig */,
+				D999B7281B70C1450363B1DB /* Pods-PokemonAlamofireCocoapodsSecureStorage.release.xcconfig */,
+				388E0848A915E261DA32B66D /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.debug.xcconfig */,
+				60A67298B2B9BB2031183B22 /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.release.xcconfig */,
+				80167196DCFE5794FF411C62 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.debug.xcconfig */,
+				0EC5B7312F5EA94678FA67B6 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BF20ED31D7CC93ED9F1BF899 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7E73F10EB2DF1F6250F542A /* Pods_PokemonAlamofireCocoapodsSecureStorage.framework */,
+				E5EC2E5BF47826B6811C8819 /* Pods_PokemonAlamofireCocoapodsSecureStorage_PokemonAlamofireCocoapodsSecureStorageUITests.framework */,
+				C552354EAD084ED58B2E0D33 /* Pods_PokemonAlamofireCocoapodsSecureStorageTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4D02B252D8B0CE60008B611 = {
+			isa = PBXGroup;
+			children = (
+				D4D02B302D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */,
+				D4D02B462D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests */,
+				D4D02B502D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests */,
+				D4D02B2F2D8B0CE60008B611 /* Products */,
+				82FABBC9ED3E98B64FBBD2E3 /* Pods */,
+				BF20ED31D7CC93ED9F1BF899 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D4D02B2F2D8B0CE60008B611 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4D02B2E2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage.app */,
+				D4D02B432D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests.xctest */,
+				D4D02B4D2D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4D02B2D2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D02B572D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorage" */;
+			buildPhases = (
+				95E48B554828ECCC8AFF543B /* [CP] Check Pods Manifest.lock */,
+				D4D02B2A2D8B0CE60008B611 /* Sources */,
+				D4D02B2B2D8B0CE60008B611 /* Frameworks */,
+				D4D02B2C2D8B0CE60008B611 /* Resources */,
+				969866E1ECD2E798743527F1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D4D02B302D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */,
+			);
+			name = PokemonAlamofireCocoapodsSecureStorage;
+			productName = PokemonAlamofireCocoapodsSecureStorage;
+			productReference = D4D02B2E2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4D02B422D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D02B5A2D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorageTests" */;
+			buildPhases = (
+				B8808282EC79A7C8DD84ECF2 /* [CP] Check Pods Manifest.lock */,
+				D4D02B3F2D8B0CE70008B611 /* Sources */,
+				D4D02B402D8B0CE70008B611 /* Frameworks */,
+				D4D02B412D8B0CE70008B611 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4D02B452D8B0CE70008B611 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D4D02B462D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests */,
+			);
+			name = PokemonAlamofireCocoapodsSecureStorageTests;
+			productName = PokemonAlamofireCocoapodsSecureStorageTests;
+			productReference = D4D02B432D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D4D02B4C2D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4D02B5D2D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorageUITests" */;
+			buildPhases = (
+				09C9821A953BAB8A85A26961 /* [CP] Check Pods Manifest.lock */,
+				D4D02B492D8B0CE70008B611 /* Sources */,
+				D4D02B4A2D8B0CE70008B611 /* Frameworks */,
+				D4D02B4B2D8B0CE70008B611 /* Resources */,
+				C263668EA83F56D3D62CAF00 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4D02B4F2D8B0CE70008B611 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D4D02B502D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests */,
+			);
+			name = PokemonAlamofireCocoapodsSecureStorageUITests;
+			productName = PokemonAlamofireCocoapodsSecureStorageUITests;
+			productReference = D4D02B4D2D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4D02B262D8B0CE60008B611 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					D4D02B2D2D8B0CE60008B611 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					D4D02B422D8B0CE70008B611 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D4D02B2D2D8B0CE60008B611;
+					};
+					D4D02B4C2D8B0CE70008B611 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = D4D02B2D2D8B0CE60008B611;
+					};
+				};
+			};
+			buildConfigurationList = D4D02B292D8B0CE60008B611 /* Build configuration list for PBXProject "PokemonAlamofireCocoapodsSecureStorage" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4D02B252D8B0CE60008B611;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D4D02B2F2D8B0CE60008B611 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4D02B2D2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */,
+				D4D02B422D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageTests */,
+				D4D02B4C2D8B0CE70008B611 /* PokemonAlamofireCocoapodsSecureStorageUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4D02B2C2D8B0CE60008B611 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B412D8B0CE70008B611 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B4B2D8B0CE70008B611 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09C9821A953BAB8A85A26961 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95E48B554828ECCC8AFF543B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokemonAlamofireCocoapodsSecureStorage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		969866E1ECD2E798743527F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage/Pods-PokemonAlamofireCocoapodsSecureStorage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage/Pods-PokemonAlamofireCocoapodsSecureStorage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage/Pods-PokemonAlamofireCocoapodsSecureStorage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8808282EC79A7C8DD84ECF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokemonAlamofireCocoapodsSecureStorageTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C263668EA83F56D3D62CAF00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4D02B2A2D8B0CE60008B611 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B3F2D8B0CE70008B611 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4D02B492D8B0CE70008B611 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4D02B452D8B0CE70008B611 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4D02B2D2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */;
+			targetProxy = D4D02B442D8B0CE70008B611 /* PBXContainerItemProxy */;
+		};
+		D4D02B4F2D8B0CE70008B611 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4D02B2D2D8B0CE60008B611 /* PokemonAlamofireCocoapodsSecureStorage */;
+			targetProxy = D4D02B4E2D8B0CE70008B611 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D4D02B552D8B0CE70008B611 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4D02B562D8B0CE70008B611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4D02B582D8B0CE70008B611 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5460FA378B4A5CA7B7B9A05 /* Pods-PokemonAlamofireCocoapodsSecureStorage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PokemonAlamofireCocoapodsSecureStorage/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4D02B592D8B0CE70008B611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D999B7281B70C1450363B1DB /* Pods-PokemonAlamofireCocoapodsSecureStorage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PokemonAlamofireCocoapodsSecureStorage/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D4D02B5B2D8B0CE70008B611 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80167196DCFE5794FF411C62 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonAlamofireCocoapodsSecureStorage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokemonAlamofireCocoapodsSecureStorage";
+			};
+			name = Debug;
+		};
+		D4D02B5C2D8B0CE70008B611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EC5B7312F5EA94678FA67B6 /* Pods-PokemonAlamofireCocoapodsSecureStorageTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokemonAlamofireCocoapodsSecureStorage.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokemonAlamofireCocoapodsSecureStorage";
+			};
+			name = Release;
+		};
+		D4D02B5E2D8B0CE70008B611 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 388E0848A915E261DA32B66D /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorageUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonAlamofireCocoapodsSecureStorage;
+			};
+			name = Debug;
+		};
+		D4D02B5F2D8B0CE70008B611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60A67298B2B9BB2031183B22 /* Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tung.patrick.PokemonAlamofireCocoapodsSecureStorageUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonAlamofireCocoapodsSecureStorage;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4D02B292D8B0CE60008B611 /* Build configuration list for PBXProject "PokemonAlamofireCocoapodsSecureStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D02B552D8B0CE70008B611 /* Debug */,
+				D4D02B562D8B0CE70008B611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D02B572D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D02B582D8B0CE70008B611 /* Debug */,
+				D4D02B592D8B0CE70008B611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D02B5A2D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D02B5B2D8B0CE70008B611 /* Debug */,
+				D4D02B5C2D8B0CE70008B611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4D02B5D2D8B0CE70008B611 /* Build configuration list for PBXNativeTarget "PokemonAlamofireCocoapodsSecureStorageUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4D02B5E2D8B0CE70008B611 /* Debug */,
+				D4D02B5F2D8B0CE70008B611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4D02B262D8B0CE60008B611 /* Project object */;
+}

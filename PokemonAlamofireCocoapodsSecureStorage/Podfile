@@ -1,0 +1,17 @@
+platform :ios, '16.0'
+
+target 'PokemonAlamofireCocoapodsSecureStorage' do
+  use_frameworks!
+  
+  # Pods for PokemonAlamofireCocoapodsSecureStorage
+  pod 'Alamofire', '~> 5.8.1'
+  
+  target 'PokemonAlamofireCocoapodsSecureStorageTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'PokemonAlamofireCocoapodsSecureStorageUITests' do
+    # Pods for testing
+  end
+end 
