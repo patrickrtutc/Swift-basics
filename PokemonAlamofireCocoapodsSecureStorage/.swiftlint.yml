@@ -1,0 +1,28 @@
+# Paths to include/exclude
+included:
+  - PokemonAlamofireCocoapodsSecureStorage
+excluded:
+  - Pods
+  - PokemonAlamofireCocoapodsSecureStorageTests
+  - PokemonAlamofireCocoapodsSecureStorageUITests
+
+# Rule configurations
+line_length: 120
+
+# Disabled rules
+disabled_rules:
+  - todo
+  - trailing_whitespace
+  - identifier_name
+  - force_cast
+  - force_try
+
+# Enabled optional rules
+opt_in_rules:
+  - empty_count
+  - closure_spacing
+  - redundant_nil_coalescing
+  - file_header
+
+# Reporter type (xcode, json, csv, checkstyle, codeclimate, junit, html, emoji, sonarqube, markdown, github-actions-logging)
+reporter: "xcode" 

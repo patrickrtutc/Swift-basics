@@ -4,8 +4,11 @@ target 'PokemonAlamofireCocoapodsSecureStorage' do
   use_frameworks!
   
   # Pods for PokemonAlamofireCocoapodsSecureStorage
-  pod 'Alamofire', '~> 5.8.1'
-  
+  pod 'Realm'
+  pod 'RealmSwift'
+  pod 'SwiftLint'
+
+
   target 'PokemonAlamofireCocoapodsSecureStorageTests' do
     inherit! :search_paths
     # Pods for testing

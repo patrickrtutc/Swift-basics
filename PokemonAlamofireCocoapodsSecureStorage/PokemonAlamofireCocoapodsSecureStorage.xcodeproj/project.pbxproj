@@ -147,6 +147,7 @@
 				D4D02B2B2D8B0CE60008B611 /* Frameworks */,
 				D4D02B2C2D8B0CE60008B611 /* Resources */,
 				969866E1ECD2E798743527F1 /* [CP] Embed Pods Frameworks */,
+				D4B189A12D8C550800C2E733 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -373,6 +374,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests/Pods-PokemonAlamofireCocoapodsSecureStorage-PokemonAlamofireCocoapodsSecureStorageUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D4B189A12D8C550800C2E733 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
