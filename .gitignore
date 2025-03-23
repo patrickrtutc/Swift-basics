@@ -90,3 +90,6 @@ Carthage/
 # User-specific settings
 *.xcuserstate
 
+Supercenter-debugging-exercise*/
+AmericanAirlinesCodingChallenge/
+GoogleService-Info.plist

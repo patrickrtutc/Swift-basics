@@ -9,6 +9,7 @@ import Foundation
 import OpenMeteoSdk
 import SwiftUI
 import CoreLocation
+import Combine
 
 // Enum to represent the state of the forecast data
 enum ForecastState {
@@ -24,88 +25,110 @@ extension WeatherDetailsView {
         var state: ForecastState = .loading
         var longitude: Double?
         var latitude: Double?
-//        var location: CLLocation? {
-//            CLLocation(
-//                latitude: latitude ?? 33.884,
-//                longitude: longitude ?? -84.5144
-//            )
-//        }
-//        let geocoder = CLGeocoder()
+        var selectedMetric: Bool = false
+        var favoriteLocations: [SavedLocation] = []
         
-        func fetchForecast() async {
-            guard let url = URL(string: APIEndpoints().getURLdaily(latitude: latitude ?? 33.884, longitude: longitude ?? -84.5144)) else {
-                state = .error("Invalid URL")
-                return
+        private let repository: WeatherRepositoryProtocol
+        private var cancellables = Set<AnyCancellable>()
+        
+        init(repository: WeatherRepositoryProtocol = DIContainer.shared.resolve(WeatherRepositoryProtocol.self)) {
+            self.repository = repository
+            loadFavoriteLocations()
+        }
+        
+        func fetchForecast() {
+            Task {
+                await _fetchForecast()
             }
+        }
+        
+        @MainActor
+        private func _fetchForecast() async {
+            state = .loading
             
-            do {
-                let responses = try await WeatherApiResponse.fetch(url: url)
-                // Process first location. Add a for-loop for multiple locations or weather models
-                let response = responses[0]
-                
-                /// Attributes for timezone and location
-                let utcOffsetSeconds = response.utcOffsetSeconds
-                //            let timezone = response.timezone
-                //            let timezoneAbbreviation = response.timezoneAbbreviation
-                //            let latitude = response.latitude
-                //            let longitude = response.longitude
-                
-                //                let current = response.current!
-                
-                
-                //                let hourly = response.hourly!
-                
-                let daily = response.daily!
-                
-                /// Note: The order of weather variables in the URL query and the `at` indices below need to match!
-                let data = WeatherData(
-                    daily: .init(
-                        time: daily.getDateTime(offset: utcOffsetSeconds),
-                        weatherCode: daily.variables(at: 0)!.values,
-                        temperature2mMax: daily.variables(at: 1)!.values,
-                        temperature2mMin: daily.variables(at: 2)!.values
-                    )
-                )
-                
-                /// Timezone `.gmt` is deliberately used.
-                /// By adding `utcOffsetSeconds` before, local-time is inferred
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeZone = .gmt
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-                
-                
-                
-                for (i, date) in data.daily.time.enumerated() {
-                    print(dateFormatter.string(from: date))
-                    print(data.daily.weatherCode[i])
-                    print(data.daily.temperature2mMax[i])
-                    print(data.daily.temperature2mMin[i])
+            let startDate = Date()
+            let endDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate)!
+            
+            repository.getDailyForecast(
+                latitude: latitude ?? 33.884,
+                longitude: longitude ?? -84.5144,
+                startDate: startDate,
+                endDate: endDate,
+                useMetric: selectedMetric
+            )
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    if case .failure(let error) = completion {
+                        self?.state = .error(error.localizedDescription)
+                    }
+                },
+                receiveValue: { [weak self] responses in
+                    self?.state = .success(responses)
                 }
-                
-//                geocoder.reverseGeocodeLocation(location) { placemarks, error in
-//                    // Handle the result here
-//                }
-                
-                state = .success(responses)
-            } catch {
-                state = .error(error.localizedDescription)
-            }
+            )
+            .store(in: &cancellables)
         }
         
         func setLocation(latitude: Double, longitude: Double) {
             self.latitude = latitude
             self.longitude = longitude
-            Task {
-                await fetchForecast()
-            }
+            fetchForecast()
         }
         
+        func saveCurrentLocationToFavorites(name: String) {
+            guard let latitude = latitude, let longitude = longitude else { return }
+            
+            repository.saveLocationToFavorites(
+                name: name,
+                coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            )
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] _ in
+                    self?.loadFavoriteLocations()
+                }
+            )
+            .store(in: &cancellables)
+        }
         
+        func loadFavoriteLocations() {
+            repository.getFavoriteLocations()
+                .receive(on: DispatchQueue.main)
+                .sink(
+                    receiveCompletion: { _ in },
+                    receiveValue: { [weak self] locations in
+                        self?.favoriteLocations = locations
+                    }
+                )
+                .store(in: &cancellables)
+        }
         
+        func removeFromFavorites(id: String) {
+            repository.removeLocationFromFavorites(id: id)
+                .receive(on: DispatchQueue.main)
+                .sink(
+                    receiveCompletion: { _ in },
+                    receiveValue: { [weak self] _ in
+                        self?.loadFavoriteLocations()
+                    }
+                )
+                .store(in: &cancellables)
+        }
+        
+        func useFavoriteLocation(_ location: SavedLocation) {
+            setLocation(latitude: location.latitude, longitude: location.longitude)
+        }
+        
+        func toggleUnits() {
+            selectedMetric.toggle()
+            fetchForecast()
+        }
         
         func formatDate(_ date: Date) -> String {
             let formatter = DateFormatter()
-            formatter.dateFormat = "YY-MM-dd HH:mm zzz"
+            formatter.dateFormat = "E, MMM d"  // Displays as "Mon, Mar 10"
             return formatter.string(from: date)
         }
         

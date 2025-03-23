@@ -53,7 +53,7 @@ struct WeatherDetailsView: View {
                         }
                     }
                     .refreshable {
-                        await viewModel.fetchForecast() // Pull-to-refresh gesture
+                        viewModel.fetchForecast() // Pull-to-refresh gesture
                     }
                     
                 case .error(let message):
